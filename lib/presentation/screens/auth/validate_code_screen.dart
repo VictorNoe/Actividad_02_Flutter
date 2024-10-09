@@ -13,13 +13,11 @@ class _ValidateCodeScreenState extends State<ValidateCodeScreen> {
   final TextEditingController input3 = TextEditingController();
   final TextEditingController input4 = TextEditingController();
 
-  // FocusNodes para controlar el cambio de foco entre campos
   final FocusNode focusNode1 = FocusNode();
   final FocusNode focusNode2 = FocusNode();
   final FocusNode focusNode3 = FocusNode();
   final FocusNode focusNode4 = FocusNode();
 
-  // Para verificar el código ingresado
   void verifyCode() {
     String code = input1.text + input2.text + input3.text + input4.text;
     if (code == "1234") {
@@ -90,7 +88,7 @@ class _ValidateCodeScreenState extends State<ValidateCodeScreen> {
         decoration: const InputDecoration(
           counterText: '',
           hintText: '0',
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
         ),
         onChanged: (value) {
           if (value.isNotEmpty) {
