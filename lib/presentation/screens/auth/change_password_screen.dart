@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_actividad_1/config/helpers/validate.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   const ChangePasswordScreen({super.key});
@@ -14,17 +15,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   bool _isObscure2 = true;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  String? validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Por favor, ingrese una contraseña';
-    }
-    if (!RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$&*~]).{8,}$')
-        .hasMatch(value)) {
-      return 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial';
-    }
-    return null;
-  }
 
   String? validatePasswordConfirm(String? value) {
     if (value == null || value.isEmpty) {
