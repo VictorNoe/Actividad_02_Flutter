@@ -34,78 +34,80 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           padding: const EdgeInsets.all(32.0),
           child: Form(
             key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/image/logo.png',
-                  height: 200,
-                  width: 200,
-                ),
-                TextFormField(
-                  validator: validatePassword,
-                  controller: _passwordController,
-                  obscureText: _isObscure1,
-                  decoration: InputDecoration(
-                    hintText: 'Contraseña',
-                    label: const Text('Confirmar contraseña'),
-                    border: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(16.0))),
-                    suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _isObscure1 = !_isObscure1;
-                          });
-                        },
-                        icon: Icon(_isObscure1
-                            ? Icons.visibility
-                            : Icons.visibility_off)),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/image/logo.png',
+                    height: 200,
+                    width: 200,
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  validator: validatePasswordConfirm,
-                  controller: _passwordConfirmController,
-                  obscureText: _isObscure2,
-                  decoration: InputDecoration(
-                    hintText: 'Contraseña',
-                    label: const Text('Confirmar contraseña'),
-                    border: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(16.0))),
-                    suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _isObscure2 = !_isObscure2;
-                          });
-                        },
-                        icon: Icon(_isObscure2
-                            ? Icons.visibility
-                            : Icons.visibility_off)),
+                  TextFormField(
+                    validator: validatePassword,
+                    controller: _passwordController,
+                    obscureText: _isObscure1,
+                    decoration: InputDecoration(
+                      hintText: 'Contraseña',
+                      label: const Text('Confirmar contraseña'),
+                      border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _isObscure1 = !_isObscure1;
+                            });
+                          },
+                          icon: Icon(_isObscure1
+                              ? Icons.visibility
+                              : Icons.visibility_off)),
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: 48,
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushReplacementNamed(context, '/');
-                      }
-                    },
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8))),
-                    child: const Text('Envíar'),
+                  const SizedBox(
+                    height: 20,
                   ),
-                )
-              ],
+                  TextFormField(
+                    validator: validatePasswordConfirm,
+                    controller: _passwordConfirmController,
+                    obscureText: _isObscure2,
+                    decoration: InputDecoration(
+                      hintText: 'Contraseña',
+                      label: const Text('Confirmar contraseña'),
+                      border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _isObscure2 = !_isObscure2;
+                            });
+                          },
+                          icon: Icon(_isObscure2
+                              ? Icons.visibility
+                              : Icons.visibility_off)),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 48,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushReplacementNamed(context, '/');
+                        }
+                      },
+                      style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                      child: const Text('Envíar'),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
